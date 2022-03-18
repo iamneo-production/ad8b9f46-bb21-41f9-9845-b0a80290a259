@@ -11,4 +11,11 @@ public class RegistrationService{
     public User saveUser(User user){
         return repo.save(user);
     }
+    public User fetchUserByEmailId(String email){
+        return repo.findByEmailId(email);
+    }
+
+    public User fetchUserByEmailIdAndPassword(String email,String password){
+        return repo.findByEmailIdAndPassword(email,password);
+    }
 }
