@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,19 +7,26 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  hide=true;
-  constructor() { }
 
-  ngOnInit(): void {
+  hide: boolean = false;
+
+  constructor(private fb: FormBuilder) {
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+  ngOnInit() {
+  }
+
+  loginForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  })
+
+
+  onLogin() {
+    if (!this.loginForm.valid) {
+      return;
     }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-
+    console.log(this.loginForm.value);
   }
+
 }
