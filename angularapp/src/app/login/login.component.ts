@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegistrationService } from '../registration.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +11,11 @@ import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  hide: boolean = false;
+  hide: boolean = true;
+  user=new User();
+  msg='';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private _service:RegistrationService,private _router:Router) {
   }
 
   ngOnInit() {
@@ -18,15 +23,21 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    password: ['', [Validators.required]]
   })
 
 
   onLogin() {
-    if (!this.loginForm.valid) {
-      return;
-    }
-    console.log(this.loginForm.value);
+   this._service.loginserFromRemote(this.user).subscribe(
+     data => {
+       console.log("response received");
+       this._router.navigate(['/userDashboard']);
+      },
+     error => {
+       console.log("exception occured");
+       this.msg="!!!Bad credentials!!!";
+      }
+   );
   }
 
 }

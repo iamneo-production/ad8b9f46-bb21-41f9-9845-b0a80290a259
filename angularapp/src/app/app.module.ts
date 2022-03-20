@@ -15,12 +15,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import{ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    UserDashboardComponent
 
   ],
   imports: [
@@ -33,7 +36,8 @@ import{ReactiveFormsModule} from '@angular/forms';
     MatIconModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

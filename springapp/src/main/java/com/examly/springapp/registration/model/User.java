@@ -12,6 +12,7 @@ public class User {
     private String emailId;
     private String userName;
     private String password;
+    private String mobileNumber;
     public User(){
 
     }
@@ -27,6 +28,13 @@ public class User {
     public void setId(int id){
         this.id=id;
     }
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+    
     public String getEmailId(){
         return emailId;
     }

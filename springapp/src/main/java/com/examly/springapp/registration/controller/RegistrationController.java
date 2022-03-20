@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.examly.springapp.registration.service.RegistrationService;
 import com.examly.springapp.app.registration.model.User;
@@ -14,6 +15,7 @@ public class RegistrationController {
     private RegistrationService service;
 
     @PostMapping("/signup")
+    @CrossOrigin(origins="https://8081-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io")
     public User registerUser(@RequestBody User user)throws Exception{
         String tempEmailId=user.getEmailId();
         if(tempEmailId!=null &&!"".equals(tempEmailId)){
@@ -28,6 +30,7 @@ public class RegistrationController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins="https://8081-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io")
     public User loginUser (@RequestBody User user) throws Exception{
         String tempEmailId =user.getEmailId();
         String tempPass=user.getPassword();
