@@ -14,8 +14,9 @@ public class RegistrationController {
     @Autowired
     private RegistrationService service;
 
+    @CrossOrigin(origins="https://8081-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io/registration")
     @PostMapping("/signup")
-    @CrossOrigin(origins="https://8081-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io")
+    
     public User registerUser(@RequestBody User user)throws Exception{
         String tempEmailId=user.getEmailId();
         if(tempEmailId!=null &&!"".equals(tempEmailId)){
