@@ -1,0 +1,5 @@
+com/examly/springapp/app/registration/controller/RegistrationController.class
+com/examly/springapp/registration/service/RegistrationService.class
+com/examly/springapp/SpringappApplication.class
+com/examly/springapp/app/registration/repository/RegistrationRepository.class
+com/examly/springapp/app/registration/model/User.class
