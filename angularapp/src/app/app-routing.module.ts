@@ -13,6 +13,10 @@ const routes: Routes = [
   ,{
     path:"userDashboard",
     component:UserDashboardComponent
+  },
+  {
+    path:"registration",
+    component:RegistrationComponent
   }
 ];
 
