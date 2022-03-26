@@ -1,5 +1,6 @@
 package com.examly.springapp.app.registration.model;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,19 +9,18 @@ import javax.persistence.Id;
 
 public class User {
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String emailId;
     private String userName;
     private String password;
     private String mobileNumber;
-    public User(){
-
-    }
-    public User(int id, String emailId, String userName, String password) {
+    public User(int id, String emailId, String userName, String password,String mobileNumber) {
         this.id = id;
         this.emailId = emailId;
         this.userName = userName;
         this.password = password;
+        this.mobileNumber=mobileNumber;
     }
     public int getId(){
         return id;

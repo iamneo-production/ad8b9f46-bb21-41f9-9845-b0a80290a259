@@ -15,4 +15,7 @@ export class RegistrationService {
     return this._http.post<any>('https://8080-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io/login',user);
 
   }
+  public registerFromRemote(user:User):Observable<any>{
+    return this._http.post<any>('https://8080-bfddfebaceefadbfcafcedecbddeccfaea.examlyiopb.examly.io/signup',user);
+  }
 }
