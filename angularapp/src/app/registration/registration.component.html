@@ -13,7 +13,7 @@
             <div class="">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>User Name</mat-label>
-                <input formControlName="userName" matInput required>
+                <input formControlName="userName" name="userName" matInput required [(ngModel)]="user.userName" />
                 <mat-error *ngIf="!registerForm.controls['userName'].valid">
                     UserName is required
                 </mat-error>
@@ -25,7 +25,9 @@
                 <input
                   formControlName="email"
                   matInput
+                  name="emailId"
                   placeholder="Enter email address" required
+                  [(ngModel)]="user.emailId"
                 />
                 <mat-error *ngIf="!registerForm.controls['email'].valid">
                     Email is required
@@ -35,7 +37,7 @@
             <div class="">
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Mobile Number</mat-label>
-                    <input formControlName="mobileNumber" matInput required>
+                    <input formControlName="mobileNumber" name="mobileNumber" matInput required [(ngModel)]="user.mobileNumber"/>
                     <mat-error *ngIf="!registerForm.controls['mobileNumber'].valid">
                         Mobile Number is required
                     </mat-error>
@@ -45,7 +47,7 @@
             <div>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input formControlName="password" (input)="onPasswordInput()" matInput [type]=" hide ? 'password' : 'text'" required />
+                <input formControlName="password" name="password" (input)="onPasswordInput()" matInput [type]=" hide ? 'password' : 'text'" required [(ngModel)]="user.password" />
                 <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
                 [attr.aria-pressed]="hide">
                 <mat-icon>
